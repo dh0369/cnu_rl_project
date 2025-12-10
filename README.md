@@ -53,7 +53,30 @@ Atari Pong은 반도체 결함 검사와 직접적으로 동일하지는 않지�
 - batch_size = 256  
 - gamma = 0.99  
 - n_epochs = 4  
-- ent_coef음)
+- ent_coef = 0.01  
+- clip_range = 0.1  
+
+### A2C
+- learning_rate = 7e-4  
+- n_steps = 5  
+
+### DQN
+- learning_rate = 2.5e-4  
+- buffer_size = 100,000  
+- exploration ε: 1.0 → 0.01  
+- target update every 10,000 steps  
+
+---
+
+## 5. 실험 결과 및 분석
+
+### Episode Length (ep_len_mean)
+TensorBoard에서 약 1M timesteps 학습 결과를 비교
+![alt text](image.png)
+- **PPO(17min) > A2C(30min) > DQN(46min)** 순으로 학습 속도 빠름  
+- PPO는 가장 빠르고 안정적 (정책이 너무 크게 변하지 않도록 제한하는 Clipped Objective 사용, Advantage 사용으로 variance 줄임)
+- DQN은 일정하게 증가하며 PPO 다음으로 우수 (ε-greedy 탐색, replay buffer의 반영 지연, value-based의 간접 업데이트 구조 때문에 학습이 느림)
+- A2C는 불안정한 패턴 (Actor-Critic이 variance가 크고, PPO처럼 안정화 기법이 없)
 
 ### Episode Reward (ep_rew_mean)
 - **PPO**: -20 부근에서 시작하여 0 근처까지 꾸준히 상승
