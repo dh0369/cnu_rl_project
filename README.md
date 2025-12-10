@@ -93,7 +93,7 @@ TensorBoard에서 약 1M timesteps 학습 결과를 비교
 ![alt text](image.png)
 - **PPO(17min) > A2C(30min) > DQN(46min)** 순으로 학습 속도 빠름  
 - PPO는 가장 빠르고 안정적 (정책이 너무 크게 변하지 않도록 제한하는 Clipped Objective 사용, Advantage 사용으로 variance 줄임)
-- DQN은 일정하게 증가하며 PPO 다음으로 우수 (ε-greedy 탐색, replay buffer의 반영 지연, value-based의 간접 업데이트 구조 때문에 학습이 느림)
+- DQN은 일정하게 증가하며 PPO 다음으로 우수 (ε-greedy 탐색, replay buffer, value-based의 간접 업데이트 구조 때문)
 - A2C는 불안정한 패턴 (Actor-Critic이 variance가 크고, PPO처럼 안정화 기법이 없음)
 
 ### Episode Reward (ep_rew_mean)
