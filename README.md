@@ -47,36 +47,13 @@ Atari Pong은 반도체 결함 검사와 직접적으로 동일하지는 않지�
 
 ## 4. 알고리즘 및 하이퍼파라미터
 
-### PPO
+### PPO (Policy Gradient)
 - learning_rate = 2.5e-4  
 - n_steps = 128  
 - batch_size = 256  
 - gamma = 0.99  
 - n_epochs = 4  
-- ent_coef = 0.01  
-- clip_range = 0.1  
-
-### A2C
-- learning_rate = 7e-4  
-- n_steps = 5  
-
-### DQN
-- learning_rate = 2.5e-4  
-- buffer_size = 100,000  
-- exploration ε: 1.0 → 0.01  
-- target update every 10,000 steps  
-
----
-
-## 5. 실험 결과 및 분석
-
-### Episode Length (ep_len_mean)
-TensorBoard에서 약 1M timesteps 학습 결과를 비교
-![alt text](image.png)
-- **PPO(17min) > A2C(30min) > DQN(46min)** 순으로 학습 속도 빠름  
-- PPO는 가장 빠르고 안정적  
-- DQN은 일정하게 증가하며 PPO 다음으로 우수
-- A2C는 불안정한 패턴  
+- ent_coef음)
 
 ### Episode Reward (ep_rew_mean)
 - **PPO**: -20 부근에서 시작하여 0 근처까지 꾸준히 상승
@@ -125,7 +102,7 @@ project/
 ├── train_a2c_pong.py
 ├── train_dqn_pong.py
 ├── eval_pong.py
-├── common_env.py
+├── utils.py
 ├── models/ *첨부파일
 ├── logs/
 └── README.md
