@@ -31,18 +31,18 @@ State
 - 84×84: AtariPreprocessing에서 resize됨
 - Grayscale: 입력을 단순화
 - 4 Frames (FrameStack): 공의 속도와 방향을 추론하기 위함
-+ 포함된 정보
--- 내 패들의 위치
--- 상대 패들의 위치
--- 공의 현재 위치
--- 공의 이동 방향 (4프레임을 통해 추론)
++ 추가로 포함된 정보
+내 패들의 위치
+상대 패들의 위치
+공의 현재 위치
+공의 이동 방향 (4프레임을 통해 추론)
 
 배경(검은색), 벽, 타이밍 정보
-Action
-<img width="834" height="347" alt="image" src="https://github.com/user-attachments/assets/e72f6e18-8939-4e8d-8baa-a792a5823901" />
+Action 
+- <img width="834" height="347" alt="image" src="https://github.com/user-attachments/assets/e72f6e18-8939-4e8d-8baa-a792a5823901" />
 
-Reward
-<img width="617" height="193" alt="image" src="https://github.com/user-attachments/assets/e96274c3-f5f7-4efa-ad6e-e81abc29b9bd" />
+Reward 
+- <img width="617" height="193" alt="image" src="https://github.com/user-attachments/assets/e96274c3-f5f7-4efa-ad6e-e81abc29b9bd" />
 
 
 ---
