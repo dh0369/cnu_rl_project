@@ -23,7 +23,7 @@ Atari Pong은 반도체 결함 검사와 직접적으로 동일하지는 않지�
 
 - **픽셀 기반 이미지 입력 → 에이전트는 CNN을 통해 공/패들 위치 패턴을 인식 → 패턴 기반으로 적절한 행동(action)을 결정**  
 - 이는 반도체 결함 검사에서도
-- **카메라 이미지 → CNN 기반 결함 여부 판단 → 조치 결정**
+- **카메라 이미지 → CNN 기반 결함 여부 판단 → PASS/REJECT 판단** 
 과 같은 구조를 갖는 것과 유사하다고 생각해서 선택함
 
 State
@@ -36,8 +36,8 @@ State
 상대 패들의 위치
 공의 현재 위치
 공의 이동 방향 (4프레임을 통해 추론)
-
 배경(검은색), 벽, 타이밍 정보
+
 Action 
 - <img width="834" height="347" alt="image" src="https://github.com/user-attachments/assets/e72f6e18-8939-4e8d-8baa-a792a5823901" />
 
@@ -94,7 +94,7 @@ TensorBoard에서 약 1M timesteps 학습 결과를 비교
 - **PPO(17min) > A2C(30min) > DQN(46min)** 순으로 학습 속도 빠름  
 - PPO는 가장 빠르고 안정적 (정책이 너무 크게 변하지 않도록 제한하는 Clipped Objective 사용, Advantage 사용으로 variance 줄임)
 - DQN은 일정하게 증가하며 PPO 다음으로 우수 (ε-greedy 탐색, replay buffer의 반영 지연, value-based의 간접 업데이트 구조 때문에 학습이 느림)
-- A2C는 불안정한 패턴 (Actor-Critic이 variance가 크고, PPO처럼 안정화 기법이 없)
+- A2C는 불안정한 패턴 (Actor-Critic이 variance가 크고, PPO처럼 안정화 기법이 없음)
 
 ### Episode Reward (ep_rew_mean)
 - **PPO**: -20 부근에서 시작하여 0 근처까지 꾸준히 상승
